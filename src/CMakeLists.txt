@@ -1,0 +1,1 @@
+add_library(Vertigo SHARED App.cpp Core.cpp Logger.cpp)
