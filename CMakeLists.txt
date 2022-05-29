@@ -5,6 +5,7 @@ project(Vertigo VERSION 1.0)
 
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_EXTENSIONS OFF) #ensures compiler uses same c++ standard
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # directories

@@ -1,15 +1,16 @@
 # Vertigo
 Cross-platform game engine as a static library.
 
-# How To Build
+## How To Build
  - Open a terminal.
  - cd into the build directory.
  - run "cmake .."
  - run "cmake --build ."
 
-# Third-Party Libraries
+## Third-Party Libraries
  - SFML
 
-# Dev Todo
+## Dev Todo
  - Integrate SFML
-
+ - Write Math (library or folder?)
+ - Write Physics (library)
