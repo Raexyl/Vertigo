@@ -11,7 +11,7 @@ namespace Logger
 	
 	void Log(const char* string, logLevel importance)
 	{
-		std::cout << "ZIPPY | ";
+		std::cout << "VERTIGO | ";
 		switch(importance)
 		{
 			case note:
