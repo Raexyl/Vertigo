@@ -1,7 +1,5 @@
 #include "App.h"
 
-#include "Renderer.h"
-#include "Input.h"
 #include "Logger.h"
 
  
@@ -31,16 +29,4 @@ void App::OnRender()
 void App::OnEnd()
 {
 	Logger::Log("App::OnEnd() has not been overridden by a derivative of this class.", Logger::logLevel::warning);
-}
-
-
-/* ----- Exit ----- */
-void App::Quit()
-{
-    glfwSetWindowShouldClose(Renderer::GetWindow(), true);
-}
-
-bool App::IsQuitting()
-{
-    return glfwWindowShouldClose(Renderer::GetWindow());
 }

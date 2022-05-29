@@ -2,8 +2,6 @@
 #define CORE_H
 
 #include "App.h"
-#include "Input.h"
-#include "Logger.h"
 
 App* GetApp(void);
 /*!< \brief You must define this function.

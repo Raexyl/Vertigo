@@ -1,13 +1,8 @@
 #include "Core.h"
-
-//Declare singleton instances! (in this order)
-Renderer Renderer::instance(800, 600, "Loading Zippy..."); //Renderer
+#include "Logger.h"
 
 int main(void)
 {
-	//Check singletons initialised correctly.
-	if(!Renderer::InitialisedSuccessfully()) { Logger::Log("Renderer failed to initalise.", Logger::logLevel::error); return 1; };
-
 	Logger::SetLogLevel(Logger::logLevel::note);
 	Logger::Log("Starting Core...", Logger::logLevel::note);
 
@@ -19,7 +14,7 @@ int main(void)
 	a->OnStart();
 
 	Logger::Log("Beginning main loop...", Logger::logLevel::note);
-    while(!a->IsQuitting())
+    while(!0)
     {
         a->OnUpdate();
 		a->OnRender();
