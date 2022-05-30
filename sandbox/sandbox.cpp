@@ -4,8 +4,13 @@
 
 class Game : public App
 {
+	//We need a window
+	sf::RenderWindow* window;
+
 	void OnStart()
 	{
+		window = new sf::RenderWindow(sf::VideoMode(200, 200), "SFML works!");
+		SetWindow(window);
 	}
 
 	void OnUpdate()
@@ -19,6 +24,7 @@ class Game : public App
 
 	void OnEnd()
 	{
+		delete window;
 	}
 };
 

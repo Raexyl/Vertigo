@@ -14,6 +14,6 @@ Cross-platform game engine as a static library.
 ### Dev Todo
  - Integrate SFML
 	- App.h needs a window pointer?
-		 - Window should be made in OnStart(), and core should quit if it doesn't find a window.
+		 - Window should be made in OnStart(), and core should quit if it doesn't find a window?
  - Write Math (library or folder?)
  - Write Physics (library)
