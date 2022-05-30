@@ -14,6 +14,7 @@ class Game : public App
 
 	void OnRender()
 	{
+
 	}
 
 	void OnEnd()
