@@ -6,10 +6,7 @@ add_library(Vertigo STATIC
 			App.cpp
 			Core.cpp 
 			Logger.cpp 
-			Impact/Math/Vec2.cpp 
-			Impact/Shape.cpp 
-			Impact/Rigidbody.cpp
-			Impact/Scene.cpp
+			Impact			#By putting it here, and not linking it the normal way, it gets included within Vertigo.
 )
 
 #link with SFML
