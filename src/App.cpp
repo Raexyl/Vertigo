@@ -31,12 +31,12 @@ void App::OnEnd()
 	Logger::Log("App::OnEnd() has not been overridden by a derivative of this class.", Logger::logLevel::warning);
 }
 
-void App::SetWindow(sf::RenderWindow* window)
+void App::Quit(void)
 {
-	m_Window = window;
+	m_Quitting = true;
 }
 
-sf::RenderWindow* App::GetWindow(void)
+bool App::IsQuitting(void)
 {
-	return m_Window;
+	return m_Quitting;
 }

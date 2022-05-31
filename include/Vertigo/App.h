@@ -14,12 +14,12 @@ class App
         virtual void     OnEnd();
 
 	private:
-		sf::RenderWindow* m_Window;
+		bool m_Quitting = false;
 
 	protected:
-		void SetWindow(sf::RenderWindow* window);
+		void Quit(void);
 
 	public: 
-		sf::RenderWindow* GetWindow(void);
+		bool IsQuitting(void);
 };
 #endif
