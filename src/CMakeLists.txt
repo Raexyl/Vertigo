@@ -1,6 +1,6 @@
 include_directories(../include/Vertigo)
 include_directories(./)
-add_library(Vertigo STATIC App.cpp Core.cpp Logger.cpp)
+add_library(Vertigo STATIC App.cpp Core.cpp Logger.cpp Impact/Math/Vec2.cpp)
 
 #link with SFML
 find_package(SFML 2.5 
