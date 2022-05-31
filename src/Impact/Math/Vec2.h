@@ -25,6 +25,8 @@ namespace Impact
 
 			float SizeSquared(void);
 			float Size(void);
+			void Normalize(void);
+			Vec2 Normalized(void);
 	};
 }
 

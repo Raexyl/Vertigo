@@ -71,4 +71,17 @@ namespace Impact
 	{
 		return sqrt(SizeSquared());
 	}
+
+	void Vec2::Normalize(void)
+	{
+		float size = Size();
+		x /= size;
+		y /= size;
+	}
+
+	Vec2 Vec2::Normalized(void)
+	{
+		float size = Size();
+		return Vec2(x / size, y / size);
+	}
 }
