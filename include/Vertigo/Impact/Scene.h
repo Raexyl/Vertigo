@@ -3,6 +3,8 @@
 
 #include "Rigidbody.h"
 
+#include <SFML/Graphics.hpp>
+
 #include <vector>
 
 namespace Impact
@@ -15,6 +17,7 @@ namespace Impact
 
 			void Step(float dt);
 			void AddRigidbody(Rigidbody* rigidbody);
+			void DebugDraw(sf::RenderWindow* window);
 
 		private:
 			std::vector<Rigidbody*> m_Rigidbodies;

@@ -1,7 +1,6 @@
 #include "App.h"
 
 #include "Logger.h"
-
  
 App::App()
 {
@@ -36,7 +35,29 @@ void App::Quit(void)
 	m_Quitting = true;
 }
 
+void App::AddRigidbody(Impact::Rigidbody* rb)
+{
+	if(m_Scene == nullptr)
+	{
+		m_Scene = new Impact::Scene();
+	}
+
+	m_Scene->AddRigidbody(rb);
+}
+
+void App::DebugDrawPhysics(sf::RenderWindow* window)
+{
+	if(m_Scene == nullptr){ return; };
+
+	m_Scene->DebugDraw(window);
+}
+
 bool App::IsQuitting(void)
 {
 	return m_Quitting;
+}
+
+Impact::Scene* App::GetScene(void)
+{
+	return m_Scene;
 }

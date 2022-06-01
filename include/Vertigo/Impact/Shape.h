@@ -1,6 +1,8 @@
 #ifndef SHAPE_H
 #define SHAPE_H
 
+#include "Math.h"
+
 namespace Impact
 {
 	class Shape

@@ -1,5 +1,4 @@
 
-
 #include "Vertigo/Vertigo.h" //Include Vertigo game engine (includes SFML/Graphics.hpp)
 
 class Game : public App
@@ -8,12 +7,19 @@ class Game : public App
 	sf::RenderWindow* window;
 	sf::CircleShape shape;
 
+	Impact::Shape circle;
+	Impact::Rigidbody rb;
+
 	void OnStart()
 	{
 		window = new sf::RenderWindow(sf::VideoMode(200, 200), "SFML works!");
 		
 		shape = sf::CircleShape(100.0f);
 		shape.setFillColor(sf::Color::Green);
+
+		circle = Impact::Shape(50.0f);
+		rb = Impact::Rigidbody(&circle, 1.0f);
+		AddRigidbody(&rb);
 	}
 
 	void OnUpdate()
@@ -28,12 +34,15 @@ class Game : public App
 				Quit();
 			}
 		}
+
+		rb.velocity += Impact::Vec2(0.00f, 0.01f);
 	}
 
 	void OnRender()
 	{
 		window->clear();
         window->draw(shape);
+		DebugDrawPhysics(window);
         window->display();
 	}
 

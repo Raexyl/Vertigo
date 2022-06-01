@@ -9,10 +9,15 @@ namespace Impact
 	Rigidbody::Rigidbody(Shape* shape, float mass)
 	{
 		m_Shape = shape;
-		m_Mass = mass;
+		m_IMass = 1.0f / mass;
 	}
 
 	Rigidbody::~Rigidbody(void)
 	{
+	}
+
+	Shape* Rigidbody::GetShape(void)
+	{
+		return m_Shape;
 	}
 }

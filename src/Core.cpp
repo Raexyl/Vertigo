@@ -20,6 +20,12 @@ int main(void)
 	{
         a->OnUpdate();
 		a->OnRender();
+
+		Impact::Scene* physicsScene = a->GetScene();
+		if(physicsScene != nullptr)
+		{
+			physicsScene->Step(0.01f); //Replace with actual dt at a later date
+		}
     }
 
 	Logger::Log("Quitting...", Logger::note);
