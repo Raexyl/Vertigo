@@ -12,8 +12,11 @@ Cross-platform game engine as a static library.
  - run "cmake --build ."
 
 ### Dev Todo
- - Integrate SFML
+ - Integrate Impact into core?
+	 - App::AddRigidbody()
+	 	 - Creates scene if none exists, adds rigidbody to scene.
+	 - Core checks if scene exists, step it in core.
+
+ - Integrate SFML?
 	- App.h needs a window pointer?
 		 - Window should be made in OnStart(), and core should quit if it doesn't find a window?
- - Write Math (library or folder?)
- - Write Physics (library)

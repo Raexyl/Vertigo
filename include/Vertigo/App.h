@@ -1,8 +1,6 @@
 #ifndef APP_H
 #define APP_H
 
-#include <SFML/Graphics.hpp>
-
 class App
 {
     public:

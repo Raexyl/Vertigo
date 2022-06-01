@@ -1,14 +1,12 @@
 
-//Include Vertigo game engine
-#include "Vertigo/Vertigo.h"
+
+#include "Vertigo/Vertigo.h" //Include Vertigo game engine (includes SFML/Graphics.hpp)
 
 class Game : public App
 {
 	//We need a window
 	sf::RenderWindow* window;
-
 	sf::CircleShape shape;
-
 
 	void OnStart()
 	{

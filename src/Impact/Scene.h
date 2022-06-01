@@ -18,8 +18,6 @@ namespace Impact
 
 		private:
 			std::vector<Rigidbody*> m_Rigidbodies;
-
-
 	};
 }
 

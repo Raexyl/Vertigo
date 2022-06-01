@@ -1,6 +1,5 @@
 #include "Core.h"
 #include "Logger.h"
-#include "Impact.h"
 
 #include <iostream>
 
