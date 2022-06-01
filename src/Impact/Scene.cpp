@@ -32,9 +32,10 @@ namespace Impact
 		for(unsigned int i = 0; i < m_Rigidbodies.size(); i++)
 		{
 			Impact::Rigidbody* b = m_Rigidbodies[i];
-			circle.setRadius(b->GetShape()->GetRadius());
+			float radius = b->GetShape()->GetRadius();
+			circle.setRadius(radius);
 			Impact::Vec2 pos = b->position;
-			circle.setPosition(pos.x, pos.y);
+			circle.setPosition(pos.x - radius, -pos.y - radius); //-pos.y because sfml y+ is down.
 			window->draw(circle);
 		}
 	}

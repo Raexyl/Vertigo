@@ -12,7 +12,7 @@ class Game : public App
 
 	void OnStart()
 	{
-		window = new sf::RenderWindow(sf::VideoMode(200, 200), "SFML works!");
+		window = new sf::RenderWindow(sf::VideoMode(800, 600), "SFML works!");
 		
 		shape = sf::CircleShape(100.0f);
 		shape.setFillColor(sf::Color::Green);
@@ -35,7 +35,7 @@ class Game : public App
 			}
 		}
 
-		rb.velocity += Impact::Vec2(0.00f, 0.01f);
+		rb.velocity += Impact::Vec2(0.00f, -0.01f);
 	}
 
 	void OnRender()
