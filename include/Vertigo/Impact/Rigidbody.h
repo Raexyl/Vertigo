@@ -21,6 +21,7 @@ namespace Impact
 			~Rigidbody();
 
 			Shape* GetShape(void);
+			float GetIMass(void);
 	};
 }
 

@@ -20,4 +20,9 @@ namespace Impact
 	{
 		return m_Shape;
 	}
+
+	float Rigidbody::GetIMass(void)
+	{
+		return m_IMass;
+	}
 }

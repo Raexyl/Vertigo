@@ -39,9 +39,15 @@ namespace Impact
 	{
 		m_VelDif = m_B->velocity - m_A->velocity;
 
-		if(Dot(m_Normal, m_VelDif) > 0.0f ) { return; };
+		//Quit if they are already moving apart
+		float velAlongNormal = Dot(m_Normal, m_VelDif);
+		if(velAlongNormal > 0.0f) { return; };
 
-		m_A->velocity *= -1.0f;
-		m_B->velocity *= -1.0f;
+		float j = -(1 + 1) * velAlongNormal;
+		j /= m_A->GetIMass() + m_B->GetIMass();
+
+		Vec2 impulse = m_Normal * j;
+		m_A->velocity -= impulse * m_A->GetIMass();
+		m_B->velocity += impulse * m_B->GetIMass();
 	}
 }
