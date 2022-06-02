@@ -84,4 +84,9 @@ namespace Impact
 		float size = Size();
 		return Vec2(x / size, y / size);
 	}
+
+	float Dot(Vec2 a, Vec2 b)
+	{
+		return (a.x * b.x) + (a.y * b.y);
+	}
 }

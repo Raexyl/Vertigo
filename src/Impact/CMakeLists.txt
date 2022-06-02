@@ -6,4 +6,5 @@ add_library(Impact STATIC
 			Shape.cpp 
 			Rigidbody.cpp 
 			Scene.cpp 
+			Manifold.cpp
 )

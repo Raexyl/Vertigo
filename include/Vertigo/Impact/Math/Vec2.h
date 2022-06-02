@@ -28,6 +28,8 @@ namespace Impact
 			void Normalize(void);
 			Vec2 Normalized(void);
 	};
+
+	float Dot(Vec2 a, Vec2 b);
 }
 
 #endif

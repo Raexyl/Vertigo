@@ -1,7 +1,7 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include "Rigidbody.h"
+#include "Manifold.h"
 
 #include <SFML/Graphics.hpp>
 

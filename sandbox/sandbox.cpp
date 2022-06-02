@@ -9,6 +9,7 @@ class Game : public App
 
 	Impact::Shape circle;
 	Impact::Rigidbody rb;
+	Impact::Rigidbody rb2;
 
 	void OnStart()
 	{
@@ -19,7 +20,12 @@ class Game : public App
 
 		circle = Impact::Shape(50.0f);
 		rb = Impact::Rigidbody(&circle, 1.0f);
+		rb.position = Impact::Vec2(window->getSize().x/2, window->getSize().y/2);
 		AddRigidbody(&rb);
+
+		rb2 = Impact::Rigidbody(&circle, 1.0f);
+		rb2.position = Impact::Vec2(window->getSize().x/2, window->getSize().y/4);
+		AddRigidbody(&rb2);
 	}
 
 	void OnUpdate()
@@ -41,7 +47,6 @@ class Game : public App
 	void OnRender()
 	{
 		window->clear();
-        window->draw(shape);
 		DebugDrawPhysics(window);
         window->display();
 	}
