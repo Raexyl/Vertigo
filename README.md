@@ -12,3 +12,7 @@ Cross-platform game engine as a static library.
  - run "cmake --build ."
 
 ### Dev Todo
+ - Make deterministic (calculate dt)
+ - max iterations to avoid spiral of death
+ - Material class?
+ - Polygons?

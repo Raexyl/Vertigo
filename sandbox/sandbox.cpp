@@ -19,13 +19,15 @@ class Game : public App
 		shape.setFillColor(sf::Color::Green);
 
 		circle = Impact::Shape(50.0f);
-		rb = Impact::Rigidbody(&circle, 1.0f);
-		rb.position = Impact::Vec2(window->getSize().x/2, window->getSize().y/2);
-		AddRigidbody(&rb);
 
-		rb2 = Impact::Rigidbody(&circle, 1.0f);
-		rb2.position = Impact::Vec2(window->getSize().x/2, window->getSize().y/4);
-		AddRigidbody(&rb2);
+		for(unsigned int i = 0; i < 10; i++)
+		{
+			Impact::Rigidbody* body = new Impact::Rigidbody(&circle, 1.0f);
+			body->position = Impact::Vec2(i * 10.0f, i * 8.0f);
+			body->velocity = Impact::Vec2(i, i) * 2.0f;
+			AddRigidbody(body);
+		}
+
 	}
 
 	void OnUpdate()

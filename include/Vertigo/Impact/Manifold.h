@@ -26,6 +26,7 @@ namespace Impact
 		private:
 			bool Overlaps(void);
 			void Collide(void);
+			void ApplyLinearProjection(void);
 	};
 }
 

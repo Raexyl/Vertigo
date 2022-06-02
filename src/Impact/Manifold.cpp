@@ -1,7 +1,5 @@
 #include "Manifold.h"
 
-#include <iostream>
-
 namespace Impact
 {
 	Manifold::Manifold(void)
@@ -21,8 +19,8 @@ namespace Impact
 	void Manifold::Solve(void)
 	{
 		if(!Overlaps()) { return; };
-
 		Collide();
+		ApplyLinearProjection();
 	}
 
 	bool Manifold::Overlaps(void)
@@ -42,12 +40,21 @@ namespace Impact
 		//Quit if they are already moving apart
 		float velAlongNormal = Dot(m_Normal, m_VelDif);
 		if(velAlongNormal > 0.0f) { return; };
-
+		
 		float j = -(1 + 1) * velAlongNormal;
 		j /= m_A->GetIMass() + m_B->GetIMass();
-
+		
 		Vec2 impulse = m_Normal * j;
+		
 		m_A->velocity -= impulse * m_A->GetIMass();
 		m_B->velocity += impulse * m_B->GetIMass();
+	}
+
+	void Manifold::ApplyLinearProjection(void)
+	{
+		if(m_Penetration > 0) { return; };
+		float adjustment = 0.5f * m_Penetration;
+		m_A->position += m_Normal * adjustment;
+		m_B->position -= m_Normal * adjustment;
 	}
 }
