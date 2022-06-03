@@ -1,13 +1,11 @@
 #include "Rigidbody.h"
+#include "Scene.h"
 
 namespace Impact
-{
-
-	std::vector<Rigidbody*> Rigidbody::allRigidbodies;
-	
+{	
 	Rigidbody::Rigidbody(void)
 	{
-		allRigidbodies.push_back(this);
+		Scene::m_Rigidbodies.push_back(this);
 	}
 
 	Rigidbody::Rigidbody(Shape* shape, float mass)
