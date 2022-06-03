@@ -49,7 +49,7 @@ namespace Impact
 	void Scene::DebugDraw(sf::RenderWindow* window)
 	{
 		sf::CircleShape circle(50.0f);
-		circle.setFillColor(sf::Color::Cyan);
+		// circle.setFillColor(sf::Color::Cyan);
 
 		for(unsigned int i = 0; i < m_Rigidbodies.size(); i++)
 		{

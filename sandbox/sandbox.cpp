@@ -5,29 +5,38 @@ class Game : public App
 {
 	//We need a window
 	sf::RenderWindow* window;
-	sf::CircleShape shape;
 
-	Impact::Shape circle;
-	Impact::Rigidbody rb;
-	Impact::Rigidbody rb2;
+	//Physics
+	Impact::Scene scene;
+	Impact::Shape smallCircle;
+	Impact::Shape mediumCircle;
 
 	void OnStart()
 	{
 		window = new sf::RenderWindow(sf::VideoMode(800, 600), "SFML works!");
-		
-		shape = sf::CircleShape(100.0f);
-		shape.setFillColor(sf::Color::Green);
 
-		circle = Impact::Shape(50.0f);
+		smallCircle = Impact::Shape(25.0f);
+		mediumCircle = Impact::Shape(50.0f);
 
-		for(unsigned int i = 0; i < 10; i++)
+		for(unsigned int i = 0; i < 40; i++)
 		{
-			Impact::Rigidbody* body = new Impact::Rigidbody(&circle, 1.0f);
+			Impact::Rigidbody* body = new Impact::Rigidbody(&mediumCircle, 1.0f);
 			body->position = Impact::Vec2(i * 10.0f, i * 8.0f);
 			body->velocity = Impact::Vec2(i, i) * 2.0f;
-			AddRigidbody(body);
+			scene.AddRigidbody(body);
 		}
 
+		for(unsigned int i = 0; i < 40; i++)
+		{
+			Impact::Rigidbody* body = new Impact::Rigidbody(&smallCircle, 1.0f);
+			body->position = Impact::Vec2(i * 10.0f, i * 8.0f);
+			body->velocity = Impact::Vec2(i, i) * 2.0f;
+			scene.AddRigidbody(body);
+		}
+
+		//Change scene physics
+		scene.SetDrag(0.01f);
+		scene.SetGravity(Impact::Vec2(0.0f, 1.0f));
 	}
 
 	void OnUpdate()
@@ -43,13 +52,14 @@ class Game : public App
 			}
 		}
 
-		rb.velocity += Impact::Vec2(0.00f, -0.01f);
+		//Step physics
+		scene.Step(0.01f);
 	}
 
 	void OnRender()
 	{
 		window->clear();
-		DebugDrawPhysics(window);
+		scene.DebugDraw(window);
         window->display();
 	}
 

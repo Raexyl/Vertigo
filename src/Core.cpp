@@ -9,7 +9,7 @@ int main(void)
 	Logger::Log("Starting Core...", Logger::logLevel::note);
 
 	//We need an app
-    App* a = GetApp(); 
+    App* a = GetApp();
     if(a == nullptr) { Logger::Log("No application detected. Please define function \"App* GetApp()\".", Logger::logLevel::error); return 1; };
 
 	Logger::Log("Starting App...", Logger::logLevel::note);
@@ -20,12 +20,6 @@ int main(void)
 	{
         a->OnUpdate();
 		a->OnRender();
-
-		Impact::Scene* physicsScene = a->GetScene();
-		if(physicsScene != nullptr)
-		{
-			physicsScene->Step(0.01f); //Replace with actual dt at a later date
-		}
     }
 
 	Logger::Log("Quitting...", Logger::note);

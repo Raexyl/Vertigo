@@ -15,17 +15,15 @@ class App
 
 	private:
 		bool m_Quitting = false;
-		Impact::Scene* m_Scene = nullptr;
+		Impact::Scene* m_Scene;
 
 	protected:
 		void Quit(void);
 
 		//Physics-related
-		void AddRigidbody(Impact::Rigidbody* rb);
-		void DebugDrawPhysics(sf::RenderWindow* window);
+		void SetGravity(float g);
 
 	public: 
 		bool IsQuitting(void);
-		Impact::Scene* GetScene(void);
 };
 #endif

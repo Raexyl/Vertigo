@@ -12,6 +12,7 @@ Cross-platform game engine as a static library.
  - run "cmake --build ."
 
 ### Dev Todo
+ - FOR NOW - KEEP IMPACT AND SFML MOSTLY DISTINCT FROM THE CORE (work out how to integrate once the physics is done)
  - Make deterministic (calculate dt)
  - max iterations to avoid spiral of death
  - Material class?
