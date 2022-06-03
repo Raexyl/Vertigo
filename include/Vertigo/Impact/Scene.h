@@ -5,8 +5,6 @@
 
 #include <SFML/Graphics.hpp>
 
-#include <vector>
-
 namespace Impact
 {
 	class Scene
@@ -22,14 +20,13 @@ namespace Impact
 
 		public:
 			void Step(float dt);
-			void AddRigidbody(Rigidbody* rigidbody);
 			void DebugDraw(sf::RenderWindow* window);
 			void SetGravity(Vec2 vector);
 			void SetDrag(float coefficient);
 			void SetIterations(unsigned int iterations);
 
 		private:
-			std::vector<Rigidbody*> m_Rigidbodies;
+			//std::vector<Rigidbody*> m_Rigidbodies;
 
 			void BoxIn(Impact::Vec2 dimensions);
 	};

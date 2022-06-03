@@ -2,6 +2,7 @@
 #define RIGIDBODY_H
 
 #include "Shape.h"
+#include <vector>
 
 namespace Impact
 {
@@ -14,6 +15,7 @@ namespace Impact
 		public:
 			Vec2 position;
 			Vec2 velocity;
+			static std::vector<Rigidbody*> allRigidbodies;// = new std::vector<Rigidbody*>();
 
 		public:
 			Rigidbody();

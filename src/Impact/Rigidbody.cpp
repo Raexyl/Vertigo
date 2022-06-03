@@ -2,8 +2,12 @@
 
 namespace Impact
 {
+
+	std::vector<Rigidbody*> Rigidbody::allRigidbodies;
+	
 	Rigidbody::Rigidbody(void)
 	{
+		allRigidbodies.push_back(this);
 	}
 
 	Rigidbody::Rigidbody(Shape* shape, float mass)
@@ -14,6 +18,7 @@ namespace Impact
 
 	Rigidbody::~Rigidbody(void)
 	{
+		//allRigidbodies.erase(this);
 	}
 
 	Shape* Rigidbody::GetShape(void)

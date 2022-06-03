@@ -23,7 +23,6 @@ class Game : public App
 			Impact::Rigidbody* body = new Impact::Rigidbody(&mediumCircle, 1.0f);
 			body->position = Impact::Vec2(i * 10.0f, i * 8.0f);
 			body->velocity = Impact::Vec2(i, i) * 2.0f;
-			scene.AddRigidbody(body);
 		}
 
 		for(unsigned int i = 0; i < 40; i++)
@@ -31,12 +30,11 @@ class Game : public App
 			Impact::Rigidbody* body = new Impact::Rigidbody(&smallCircle, 1.0f);
 			body->position = Impact::Vec2(i * 10.0f, i * 8.0f);
 			body->velocity = Impact::Vec2(i, i) * 2.0f;
-			scene.AddRigidbody(body);
 		}
 
 		//Change scene physics
-		scene.SetDrag(0.01f);
-		scene.SetGravity(Impact::Vec2(0.0f, 1.0f));
+		scene.SetDrag(0.1f);
+		scene.SetGravity(Impact::Vec2(0.0f, 3.0f));
 	}
 
 	void OnUpdate()
