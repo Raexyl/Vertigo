@@ -9,7 +9,7 @@ class Game : public App
 	sf::RenderWindow* window;
 
 	//Physics
-	Impact::Scene scene;
+	//Impact::Scene scene;
 	Impact::Shape smallCircle;
 	Impact::Shape mediumCircle;
 
@@ -38,8 +38,8 @@ class Game : public App
 		}
 
 		//Change scene physics
-		scene.SetDrag(0.1f);
-		scene.SetGravity(Impact::Vec2(0.0f, 3.0f));
+		//scene.SetDrag(0.1f);
+		//scene.SetGravity(Impact::Vec2(0.0f, 3.0f));
 	}
 
 	void OnUpdate()
@@ -58,13 +58,13 @@ class Game : public App
 		}
 
 		//Step physics
-		scene.Step(0.01f);
+		//scene.Step(0.01f);
 	}
 
 	void OnRender()
 	{
 		window->clear();
-		scene.DebugDraw(window);
+		//scene.DebugDraw(window);
         window->display();
 	}
 

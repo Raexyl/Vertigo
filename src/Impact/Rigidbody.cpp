@@ -16,6 +16,8 @@ namespace Impact
 	{
 		m_Shape = shape;
 		m_IMass = 1.0f / mass;
+		allRigidbodies.push_back(this);
+		Logger::Log("New rb", Logger::logLevel::note);
 	}
 
 	Rigidbody::~Rigidbody(void)
