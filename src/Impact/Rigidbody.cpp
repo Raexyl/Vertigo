@@ -1,11 +1,15 @@
 #include "Rigidbody.h"
 #include "Scene.h"
+#include "Logger.h"
 
 namespace Impact
 {	
+	std::vector<Rigidbody*> Rigidbody::allRigidbodies;
+
 	Rigidbody::Rigidbody(void)
 	{
-		Scene::m_Rigidbodies.push_back(this);
+		allRigidbodies.push_back(this);
+		Logger::Log("New rb", Logger::logLevel::note);
 	}
 
 	Rigidbody::Rigidbody(Shape* shape, float mass)

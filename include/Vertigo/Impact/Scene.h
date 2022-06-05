@@ -17,9 +17,6 @@ namespace Impact
 			Vec2 m_Gravity = Vec2(0.0f, 1.0f);
 			float m_Drag = 0.01f;
 			unsigned int m_Iterations = 2;
-		
-		public:
-			static std::vector<Rigidbody*> m_Rigidbodies;
 
 		public:
 			void Step(float dt);

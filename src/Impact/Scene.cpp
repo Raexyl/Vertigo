@@ -3,7 +3,6 @@
 
 namespace Impact
 {
-	static std::vector<Rigidbody*> m_Rigidbodies;
 	Scene::Scene(void)
 	{
 	}
@@ -15,9 +14,9 @@ namespace Impact
 	void Scene::Step(float dt)
 	{
 		//Step Velocities
-		for(unsigned int i = 0; i < m_Rigidbodies.size(); i++)
+		for(unsigned int i = 0; i < Rigidbody::allRigidbodies.size(); i++)
 		{
-			Rigidbody* b = m_Rigidbodies[i];
+			Rigidbody* b = Rigidbody::allRigidbodies[i];
 			b->velocity += m_Gravity * dt; //gravity
 			b->velocity *= 1 - (m_Drag * dt); //drag (air resistance)
 			b->position += b->velocity * dt; //step position
@@ -28,11 +27,11 @@ namespace Impact
 		//Manage collisions!
 		for(unsigned int iterations = 0; iterations < m_Iterations; iterations++)
 		{
-			for(unsigned int i = 0; i < m_Rigidbodies.size() - 1; i++)
+			for(unsigned int i = 0; i < Rigidbody::allRigidbodies.size() - 1; i++)
 			{
-				for(unsigned int j = i + 1; j < m_Rigidbodies.size(); j++)
+				for(unsigned int j = i + 1; j < Rigidbody::allRigidbodies.size(); j++)
 				{
-					Manifold m = Manifold(m_Rigidbodies[i], m_Rigidbodies[j]);
+					Manifold m = Manifold(Rigidbody::allRigidbodies[i], Rigidbody::allRigidbodies[j]);
 					m.Solve();
 				}
 			}
@@ -44,9 +43,9 @@ namespace Impact
 		sf::CircleShape circle(50.0f);
 		// circle.setFillColor(sf::Color::Cyan);
 
-		for(unsigned int i = 0; i < m_Rigidbodies.size(); i++)
+		for(unsigned int i = 0; i < Rigidbody::allRigidbodies.size(); i++)
 		{
-			Impact::Rigidbody* b = m_Rigidbodies[i];
+			Impact::Rigidbody* b = Rigidbody::allRigidbodies[i];
 			float radius = b->GetShape()->GetRadius();
 			circle.setRadius(radius);
 			Impact::Vec2 pos = b->position;
@@ -72,9 +71,9 @@ namespace Impact
 
 	void Scene::BoxIn(Vec2 dimensions)
 	{
-		for(unsigned int i = 0; i < m_Rigidbodies.size(); i++)
+		for(unsigned int i = 0; i < Rigidbody::allRigidbodies.size(); i++)
 		{
-			Impact::Rigidbody* b = m_Rigidbodies[i];
+			Impact::Rigidbody* b = Rigidbody::allRigidbodies[i];
 			float x = b->position.x;
 			float y = b->position.y;
 

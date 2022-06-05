@@ -1,5 +1,7 @@
 
 #include "Vertigo/Vertigo.h" //Include Vertigo game engine (includes SFML/Graphics.hpp)
+#include <iostream>
+
 
 class Game : public App
 {
@@ -25,6 +27,9 @@ class Game : public App
 			body->velocity = Impact::Vec2(i, i) * 2.0f;
 		}
 
+
+
+
 		for(unsigned int i = 0; i < 40; i++)
 		{
 			Impact::Rigidbody* body = new Impact::Rigidbody(&smallCircle, 1.0f);
@@ -39,6 +44,8 @@ class Game : public App
 
 	void OnUpdate()
 	{
+		std::cout << "Here!" << std::endl;
+
 		//poll events
 		sf::Event event;
 		while(window->pollEvent(event))

@@ -15,6 +15,7 @@ namespace Impact
 		public:
 			Vec2 position;
 			Vec2 velocity;
+			static std::vector<Rigidbody*> allRigidbodies;
 
 		public:
 			Rigidbody();
