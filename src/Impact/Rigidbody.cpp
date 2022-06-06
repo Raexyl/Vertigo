@@ -28,6 +28,11 @@ namespace Impact
 		return m_Shape;
 	}
 
+	Material* Rigidbody::GetMaterial(void)
+	{
+		return m_Material;
+	}
+
 	float Rigidbody::GetIMass(void)
 	{
 		return m_IMass;

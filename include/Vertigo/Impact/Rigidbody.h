@@ -2,6 +2,7 @@
 #define RIGIDBODY_H
 
 #include "Shape.h"
+#include "Material.h"
 #include <vector>
 
 namespace Impact
@@ -10,6 +11,7 @@ namespace Impact
 	{
 		private:
 			Shape* m_Shape;
+			Material* m_Material;
 			float m_IMass;
 
 		public:
@@ -23,6 +25,7 @@ namespace Impact
 			~Rigidbody();
 
 			Shape* GetShape(void);
+			Material* GetMaterial(void);
 			float GetIMass(void);
 	};
 }
