@@ -21,7 +21,7 @@ namespace Impact
 
 		public:
 			Rigidbody();
-			Rigidbody(Shape* shape, float mass);
+			Rigidbody(Shape* shape, Material* material, float mass);
 			~Rigidbody();
 
 			Shape* GetShape(void);

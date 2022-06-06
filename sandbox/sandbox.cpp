@@ -11,6 +11,7 @@ class Game : public App
 	//Physics
 	Impact::Shape smallCircle;
 	Impact::Shape mediumCircle;
+	Impact::Material ideal;
 
 	void OnStart()
 	{
@@ -18,11 +19,12 @@ class Game : public App
 
 		smallCircle = Impact::Shape(25.0f);
 		mediumCircle = Impact::Shape(50.0f);
+		ideal = Impact::Material(0.99f, 0.0f, 0.0f);
 
 		//medium circles
 		for(unsigned int i = 0; i < 40; i++)
 		{
-			Impact::Rigidbody* body = new Impact::Rigidbody(&mediumCircle, 1.0f);
+			Impact::Rigidbody* body = new Impact::Rigidbody(&mediumCircle, &ideal, 1.0f);
 			body->position = Impact::Vec2(i * 10.0f, i * 8.0f);
 			body->velocity = Impact::Vec2(i, i) * 2.0f;
 		}
@@ -30,7 +32,7 @@ class Game : public App
 		//small circles
 		for(unsigned int i = 0; i < 40; i++)
 		{
-			Impact::Rigidbody* body = new Impact::Rigidbody(&smallCircle, 1.0f);
+			Impact::Rigidbody* body = new Impact::Rigidbody(&smallCircle, &ideal, 1.0f);
 			body->position = Impact::Vec2(i * 10.0f, i * 8.0f);
 			body->velocity = Impact::Vec2(i, i) * 2.0f;
 		}

@@ -8,13 +8,12 @@ namespace Impact
 
 	Rigidbody::Rigidbody(void)
 	{
-		allRigidbodies.push_back(this);
+		//allRigidbodies.push_back(this); //Don't add the body since it has no shape or material.
 	}
 
-	Rigidbody::Rigidbody(Shape* shape, float mass)
+	Rigidbody::Rigidbody(Shape* shape, Material* material, float mass)
+		:m_Shape(shape), m_Material(material), m_IMass(1.0f / mass)
 	{
-		m_Shape = shape;
-		m_IMass = 1.0f / mass;
 		allRigidbodies.push_back(this);
 	}
 

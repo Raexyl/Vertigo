@@ -40,8 +40,11 @@ namespace Impact
 		//Quit if they are already moving apart
 		float velAlongNormal = Dot(m_Normal, m_VelDif);
 		if(velAlongNormal > 0.0f) { return; };
+
+		float e = m_A->GetMaterial()->restitution + m_B->GetMaterial()->restitution;
+		e /= 2.0f;
 		
-		float j = -(1 + 1) * velAlongNormal;
+		float j = -(1 + e) * velAlongNormal;
 		j /= m_A->GetIMass() + m_B->GetIMass();
 		
 		Vec2 impulse = m_Normal * j;

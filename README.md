@@ -12,7 +12,6 @@ Cross-platform game engine as a static library.
  - run "cmake --build ."
 
 ### Dev Todo
- - Material class? --> Rigidbody constructors
  - Polygons?
 	 - Re-work manifolds to contain contact-points
  - Links (between bodies)
