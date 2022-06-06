@@ -13,6 +13,7 @@ Cross-platform game engine as a static library.
 
 ### Dev Todo
  - Polygons?
+	 - Shapes need to hold vertices!
 	 - Re-work manifolds to contain contact-points
  - Links (between bodies)
  - Quadtrees and threading!

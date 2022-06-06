@@ -6,17 +6,12 @@ namespace Impact
 	{
 	}
 
-	Shape::Shape(float radius)
+	Shape::Shape(float Radius)
 	{
-		m_Radius = radius;
+		radius = Radius;
 	}
 
 	Shape::~Shape(void)
 	{
-	}
-
-	float Shape::GetRadius(void)
-	{
-		return m_Radius;
 	}
 }

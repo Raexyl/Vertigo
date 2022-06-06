@@ -60,7 +60,7 @@ namespace Impact
 		for(unsigned int i = 0; i < Rigidbody::allRigidbodies.size(); i++)
 		{
 			Impact::Rigidbody* b = Rigidbody::allRigidbodies[i];
-			float radius = b->GetShape()->GetRadius();
+			float radius = b->GetShape()->radius;
 			circle.setRadius(radius);
 			Impact::Vec2 pos = b->position;
 			circle.setPosition(pos.x - radius, pos.y - radius); //-pos.y ? because sfml y+ is down?

@@ -27,11 +27,11 @@ namespace Impact
 	{
 		Vec2 posDif = m_B->position - m_A->position;
 		m_Normal = posDif.Normalized();
-		m_Penetration = posDif.Size() - m_A->GetShape()->GetRadius() - m_B->GetShape()->GetRadius();
+		m_Penetration = posDif.Size() - m_A->GetShape()->radius - m_B->GetShape()->radius;
 
 		if (m_Penetration < 0) 
 		{
-			m_Contacts[0] = m_A->position + (posDif * m_A->GetShape()->GetRadius());
+			m_Contacts[0] = m_A->position + (posDif * m_A->GetShape()->radius);
 			return true;
 		}
 

@@ -2,20 +2,20 @@
 #define SHAPE_H
 
 #include "Math.h"
+#include <vector>
 
 namespace Impact
 {
 	class Shape
 	{
-		private:
-			float m_Radius = 0.0f;				//Radius if circular, Max extension if not.
-
 		public:
 			Shape();
-			Shape(float radius);
+			Shape(float Radius);
 			~Shape();
 
-			float GetRadius(void);
+		public:
+			float radius = 0.0f;				//Radius if circular, Max extension if not.
+			std::vector<Vec2> vertices;
 	};
 }
 
