@@ -9,7 +9,6 @@ class Game : public App
 	sf::RenderWindow* window;
 
 	//Physics
-	//Impact::Scene scene;
 	Impact::Shape smallCircle;
 	Impact::Shape mediumCircle;
 
@@ -20,6 +19,7 @@ class Game : public App
 		smallCircle = Impact::Shape(25.0f);
 		mediumCircle = Impact::Shape(50.0f);
 
+		//medium circles
 		for(unsigned int i = 0; i < 40; i++)
 		{
 			Impact::Rigidbody* body = new Impact::Rigidbody(&mediumCircle, 1.0f);
@@ -27,9 +27,7 @@ class Game : public App
 			body->velocity = Impact::Vec2(i, i) * 2.0f;
 		}
 
-
-
-
+		//small circles
 		for(unsigned int i = 0; i < 40; i++)
 		{
 			Impact::Rigidbody* body = new Impact::Rigidbody(&smallCircle, 1.0f);
@@ -38,14 +36,12 @@ class Game : public App
 		}
 
 		//Change scene physics
-		//scene.SetDrag(0.1f);
-		//scene.SetGravity(Impact::Vec2(0.0f, 3.0f));
+		Impact::Scene::SetDrag(0.1f);
+		Impact::Scene::SetGravity(Impact::Vec2(0.0f, 3.0f));
 	}
 
 	void OnUpdate()
 	{
-		std::cout << "Here!" << std::endl;
-
 		//poll events
 		sf::Event event;
 		while(window->pollEvent(event))
@@ -56,15 +52,12 @@ class Game : public App
 				Quit();
 			}
 		}
-
-		//Step physics
-		//scene.Step(0.01f);
 	}
 
 	void OnRender()
 	{
 		window->clear();
-		//scene.DebugDraw(window);
+		Impact::Scene::DebugDraw(window);
         window->display();
 	}
 

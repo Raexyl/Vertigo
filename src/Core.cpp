@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+Impact::Scene Impact::Scene::instance;
+
 int main(void)
 {
 	Logger::SetLogLevel(Logger::logLevel::note);
@@ -19,6 +21,7 @@ int main(void)
     while(!a->IsQuitting())
 	{
         a->OnUpdate();
+		Impact::Scene::Step(0.01f);
 		a->OnRender();
     }
 

@@ -11,7 +11,21 @@ namespace Impact
 	{
 	}
 
-	void Scene::Step(float dt)
+	/* ----- Public Static Wrappers ----- */
+	void Scene::Step(float dt) { Get().hiddenStep(dt); };
+
+	void Scene::DebugDraw(sf::RenderWindow* window) { Get().hiddenDebugDraw(window); };
+
+	void Scene::SetGravity(Vec2 vector) { Get().hiddenSetGravity(vector); };
+
+	void Scene::SetDrag(float coefficient) { Get().hiddenSetDrag(coefficient); };
+
+	void Scene::SetIterations(unsigned int iterations) { Get().hiddenSetIterations(iterations); };
+
+
+	/* ----- Hidden Methods ----- */
+
+	void Scene::hiddenStep(float dt)
 	{
 		//Step Velocities
 		for(unsigned int i = 0; i < Rigidbody::allRigidbodies.size(); i++)
@@ -27,9 +41,9 @@ namespace Impact
 		//Manage collisions!
 		for(unsigned int iterations = 0; iterations < m_Iterations; iterations++)
 		{
-			for(unsigned int i = 0; i < Rigidbody::allRigidbodies.size() - 1; i++)
+			for(int i = 0; i < Rigidbody::allRigidbodies.size() - 1; i++)
 			{
-				for(unsigned int j = i + 1; j < Rigidbody::allRigidbodies.size(); j++)
+				for(int j = i + 1; j < Rigidbody::allRigidbodies.size(); j++)
 				{
 					Manifold m = Manifold(Rigidbody::allRigidbodies[i], Rigidbody::allRigidbodies[j]);
 					m.Solve();
@@ -38,7 +52,7 @@ namespace Impact
 		}
 	}
 
-	void Scene::DebugDraw(sf::RenderWindow* window)
+	void Scene::hiddenDebugDraw(sf::RenderWindow* window)
 	{
 		sf::CircleShape circle(50.0f);
 		// circle.setFillColor(sf::Color::Cyan);
@@ -54,17 +68,17 @@ namespace Impact
 		}
 	}
 
-	void Scene::SetGravity(Vec2 vector)
+	void Scene::hiddenSetGravity(Vec2 vector)
 	{
 		m_Gravity = vector;
 	}
 
-	void Scene::SetDrag(float coefficient)
+	void Scene::hiddenSetDrag(float coefficient)
 	{
 		m_Drag = coefficient;
 	}
 
-	void Scene::SetIterations(unsigned int iterations)
+	void Scene::hiddenSetIterations(unsigned int iterations)
 	{
 		m_Iterations = iterations;
 	}
