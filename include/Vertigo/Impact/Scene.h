@@ -1,7 +1,7 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include "Manifold.h"
+#include "Math.h"
 
 #include <SFML/Graphics.hpp>
 

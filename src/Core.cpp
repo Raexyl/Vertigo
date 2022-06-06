@@ -36,14 +36,18 @@ int main(void)
 		
 		acc += std::chrono::duration_cast<std::chrono::nanoseconds>(delta);
 
+
 		//Running the application
+		a->OnUpdate();
+		//Update Physics
+		unsigned int maxIterations = 10; //Max iterations to avoid spiral of death
 		while(acc >= frametime)
 		{
 			acc -= frametime;
-			a->OnUpdate();
 			Impact::Scene::Step(1 / 60.0f); //60fps
-			a->OnRender();
+			if(--maxIterations <= 0) { break; }; //Avoiding spiral of death. OnUpdate() and OnRender() need some time to run too.
 		}
+		a->OnRender();
     }
 
 
