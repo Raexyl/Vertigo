@@ -36,8 +36,7 @@ class Game : public App
 		}
 
 		//Change scene physics
-		Impact::Scene::SetDrag(0.1f);
-		Impact::Scene::SetGravity(Impact::Vec2(0.0f, 3.0f));
+		Impact::Scene::SetGravity(Impact::Vec2(0.0f, 98.81f));
 	}
 
 	void OnUpdate()

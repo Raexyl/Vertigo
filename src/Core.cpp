@@ -2,6 +2,7 @@
 #include "Logger.h"
 
 #include <iostream>
+#include <chrono>
 
 Impact::Scene Impact::Scene::instance;
 
@@ -18,12 +19,33 @@ int main(void)
 	a->OnStart();
 
 	Logger::Log("Beginning main loop...", Logger::logLevel::note);
+	
+	std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
+	std::chrono::steady_clock::time_point end;
+	std::chrono::steady_clock::duration delta;
+	std::chrono::nanoseconds acc(0);
+
+	std::chrono::milliseconds frametime((int)(1000 / 60.0f));  //60fps
+
     while(!a->IsQuitting())
 	{
-        a->OnUpdate();
-		Impact::Scene::Step(0.01f);
-		a->OnRender();
+		//Measuring frame-times
+		end = std::chrono::steady_clock::now();
+		delta = end - start;
+		start = std::chrono::steady_clock::now();
+		
+		acc += std::chrono::duration_cast<std::chrono::nanoseconds>(delta);
+
+		//Running the application
+		while(acc >= frametime)
+		{
+			acc -= frametime;
+			a->OnUpdate();
+			Impact::Scene::Step(1 / 60.0f); //60fps
+			a->OnRender();
+		}
     }
+
 
 	Logger::Log("Quitting...", Logger::note);
     a->OnEnd();

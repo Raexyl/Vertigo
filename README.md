@@ -12,8 +12,6 @@ Cross-platform game engine as a static library.
  - run "cmake --build ."
 
 ### Dev Todo
- - Impact::Scene should be a singleton, I reckon... This is being difficult...
- - Make deterministic (calculate dt)
  - max iterations to avoid spiral of death
  - Material class?
  - Polygons?

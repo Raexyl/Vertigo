@@ -27,8 +27,8 @@ namespace Impact
 		private:
 			static Scene instance;
 
-			Vec2 m_Gravity = Vec2(0.0f, 1.0f);
-			float m_Drag = 0.01f;
+			Vec2 m_Gravity = Vec2(0.0f, 9.81f);
+			float m_Drag = 0.00f;
 			unsigned int m_Iterations = 2;
 
 		public:
