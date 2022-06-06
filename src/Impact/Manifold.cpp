@@ -29,7 +29,12 @@ namespace Impact
 		m_Normal = posDif.Normalized();
 		m_Penetration = posDif.Size() - m_A->GetShape()->GetRadius() - m_B->GetShape()->GetRadius();
 
-		if (m_Penetration < 0) { return true; };
+		if (m_Penetration < 0) 
+		{
+			m_Contacts[0] = m_A->position + (posDif * m_A->GetShape()->GetRadius());
+			return true;
+		}
+
 		return false;
 	}
 

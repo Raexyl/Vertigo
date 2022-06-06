@@ -15,6 +15,7 @@ namespace Impact
 			float m_Penetration;
 			Vec2 m_VelDif;
 			Vec2 m_Normal;
+			Vec2 m_Contacts[2]; //Contact point in world space
 
 		public:
 			Manifold(void);
