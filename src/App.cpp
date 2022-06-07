@@ -35,7 +35,27 @@ void App::Quit(void)
 	m_Quitting = true;
 }
 
+void App::SetPhysicsFramerate(float framerate)
+{
+	m_PhysicsFrameTime = (1.0f/framerate);
+}
+
+void App::SetRenderFramerate(float framerate)
+{
+	m_RenderFrameTime = (1.0f/framerate);
+}
+
 bool App::IsQuitting(void)
 {
 	return m_Quitting;
+}
+
+float App::GetPhysicsFrameTime(void)
+{
+	return m_PhysicsFrameTime;
+}
+
+float App::GetRenderFrameTime(void)
+{
+	return m_RenderFrameTime;
 }

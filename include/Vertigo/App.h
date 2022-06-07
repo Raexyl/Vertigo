@@ -16,14 +16,20 @@ class App
 	private:
 		bool m_Quitting = false;
 		Impact::Scene* m_Scene;
+		float m_PhysicsFrameTime = (1/120.0f);
+		float m_RenderFrameTime = (1/60.0f);
 
 	protected:
 		void Quit(void);
 
-		//Physics-related
-		void SetGravity(float g);
+		//Set frame-rates
+		void SetPhysicsFramerate(float framerate);
+		void SetRenderFramerate(float framerate);
 
 	public: 
 		bool IsQuitting(void);
+
+		float GetPhysicsFrameTime(void);
+		float GetRenderFrameTime(void);
 };
 #endif

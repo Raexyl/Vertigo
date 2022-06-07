@@ -25,7 +25,10 @@ int main(void)
 	std::chrono::steady_clock::duration delta;
 	std::chrono::nanoseconds acc(0);
 
-	std::chrono::milliseconds frametime((int)(1000 / 60.0f));  //60fps
+	std::chrono::milliseconds physicsFrametime((int)(a->GetPhysicsFrameTime() * 1000.0f));  //seconds to milliseconds
+	std::chrono::milliseconds renderFrametime((int)(a->GetRenderFrameTime() * 1000.0f));
+
+	std::chrono::nanoseconds renderAcc(0);
 
     while(!a->IsQuitting())
 	{
@@ -35,19 +38,27 @@ int main(void)
 		start = std::chrono::steady_clock::now();
 		
 		acc += std::chrono::duration_cast<std::chrono::nanoseconds>(delta);
+		renderAcc += std::chrono::duration_cast<std::chrono::nanoseconds>(delta);
 
 
 		//Running the application
 		a->OnUpdate();
+		
 		//Update Physics
 		unsigned int maxIterations = 10; //Max iterations to avoid spiral of death
-		while(acc >= frametime)
+		while(acc >= physicsFrametime)
 		{
-			acc -= frametime;
-			Impact::Scene::Step(1 / 60.0f); //60fps
+			acc -= physicsFrametime;
+			Impact::Scene::Step(a->GetPhysicsFrameTime());
 			if(--maxIterations <= 0) { break; }; //Avoiding spiral of death. OnUpdate() and OnRender() need some time to run too.
 		}
-		a->OnRender();
+
+		//Render
+		if(renderAcc >= renderFrametime)
+		{
+			a->OnRender();
+			renderAcc = std::chrono::nanoseconds::zero();
+		}
     }
 
 

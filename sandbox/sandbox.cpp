@@ -1,7 +1,5 @@
 
 #include "Vertigo/Vertigo.h" //Include Vertigo game engine (includes SFML/Graphics.hpp)
-#include <iostream>
-
 
 class Game : public App
 {
@@ -39,6 +37,10 @@ class Game : public App
 
 		//Change scene physics
 		Impact::Scene::SetGravity(Impact::Vec2(0.0f, 98.81f));
+
+		//Change framerates test
+		SetRenderFramerate(60.0f);
+		SetPhysicsFramerate(120.0f);
 	}
 
 	void OnUpdate()
