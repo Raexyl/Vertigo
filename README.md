@@ -15,5 +15,6 @@ Cross-platform game engine as a static library.
  - Polygons?
 	 - Shapes need to hold vertices!
 	 - Re-work manifolds to contain contact-points
+ - Render at 60fps
  - Links (between bodies)
  - Quadtrees and threading!
