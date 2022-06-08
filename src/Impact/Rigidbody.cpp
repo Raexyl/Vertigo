@@ -12,8 +12,17 @@ namespace Impact
 	}
 
 	Rigidbody::Rigidbody(Shape* shape, Material* material, float mass)
-		:m_Shape(shape), m_Material(material), m_IMass(1.0f / mass)
+		:m_Shape(shape), m_Material(material)
 	{
+		if(mass != 0.0f) 
+		{
+			m_IMass = 1.0f / mass;
+		}
+		else
+		{
+			m_IMass = 1.0f;
+		}
+
 		allRigidbodies.push_back(this);
 	}
 
@@ -35,5 +44,10 @@ namespace Impact
 	float Rigidbody::GetIMass(void)
 	{
 		return m_IMass;
+	}
+
+	void Rigidbody::MakeKinematic(void)
+	{
+		m_IMass = 0.0f;
 	}
 }

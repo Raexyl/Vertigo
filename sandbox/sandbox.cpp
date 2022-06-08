@@ -35,6 +35,11 @@ class Game : public App
 			body->velocity = Impact::Vec2(i, i) * 2.0f;
 		}
 
+		//Kinematic body test
+		Impact::Rigidbody* kinematic = new Impact::Rigidbody(&mediumCircle, &ideal, 0.0f);
+		kinematic->position = Impact::Vec2(400, 300);
+		kinematic->MakeKinematic();
+
 		//Change scene physics
 		Impact::Scene::SetGravity(Impact::Vec2(0.0f, 98.81f));
 

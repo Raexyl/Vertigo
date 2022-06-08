@@ -54,15 +54,15 @@ namespace Impact
 		
 		Vec2 impulse = m_Normal * j;
 		
-		m_A->velocity -= impulse * m_A->GetIMass();
-		m_B->velocity += impulse * m_B->GetIMass();
+		if(m_A->GetIMass() != 0.0f) { m_A->velocity -= impulse * m_A->GetIMass(); };
+		if(m_B->GetIMass() != 0.0f) { m_B->velocity += impulse * m_B->GetIMass(); };
 	}
 
 	void Manifold::ApplyLinearProjection(void)
 	{
 		if(m_Penetration > 0) { return; };
 		float adjustment = 0.5f * m_Penetration;
-		m_A->position += m_Normal * adjustment;
-		m_B->position -= m_Normal * adjustment;
+		if(m_A->GetIMass() != 0.0f) { m_A->position += m_Normal * adjustment; };
+		if(m_B->GetIMass() != 0.0f) { m_B->position -= m_Normal * adjustment; };
 	}
 }

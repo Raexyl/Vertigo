@@ -27,6 +27,7 @@ namespace Impact
 			Shape* GetShape(void);
 			Material* GetMaterial(void);
 			float GetIMass(void);
+			void MakeKinematic(void);
 	};
 }
 
