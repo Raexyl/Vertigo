@@ -12,10 +12,9 @@ Cross-platform game engine as a static library.
  - run "cmake --build ."
 
 ### Dev Todo
- - Kinematic rigibodies! --> Rigidbody should store a bool, that says if it's kinematic or not!
  - Polygons?
-	 - Shapes need to hold vertices!
-	 - Re-work manifolds to contain contact-points
+	 - Axes of separation... static method?
+	 - Find and store contact points
 
  - Links (between bodies)
  - Quadtrees and threading!

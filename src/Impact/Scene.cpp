@@ -57,15 +57,37 @@ namespace Impact
 	{
 		sf::CircleShape circle(50.0f);
 		// circle.setFillColor(sf::Color::Cyan);
+		sf::ConvexShape poly;
 
 		for(unsigned int i = 0; i < Rigidbody::allRigidbodies.size(); i++)
 		{
 			Impact::Rigidbody* b = Rigidbody::allRigidbodies[i];
-			float radius = b->GetShape()->radius;
-			circle.setRadius(radius);
-			Impact::Vec2 pos = b->position;
-			circle.setPosition(pos.x - radius, pos.y - radius); //-pos.y ? because sfml y+ is down?
-			window->draw(circle);
+			Impact::Shape* bodyShape = b->GetShape();
+
+			//Circles
+			unsigned int vertexCount = bodyShape->vertices.size();
+			if( vertexCount == 0)
+			{
+				float radius = bodyShape->radius;
+				circle.setRadius(radius);
+				Impact::Vec2 pos = b->position;
+				circle.setPosition(pos.x - radius, pos.y - radius); //-pos.y ? because sfml y+ is down?
+				window->draw(circle);
+			}
+			else 	//Polygons
+			{
+				poly.setPointCount(vertexCount);
+
+				for(unsigned int i = 0; i < vertexCount; i++)
+				{
+					Impact::Vec2 vertex = bodyShape->vertices[i];
+					vertex += b->position;
+					poly.setPoint(i, sf::Vector2f(vertex.x, vertex.y));
+				}
+				window->draw(poly);
+			}
+
+
 		}
 	}
 

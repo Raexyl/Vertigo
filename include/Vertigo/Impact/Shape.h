@@ -9,13 +9,14 @@ namespace Impact
 	class Shape
 	{
 		public:
-			Shape();
-			Shape(float Radius);
-			~Shape();
+			float radius = 0.0f;				//Radius if circular, Max extension if not
+			std::vector<Vec2> vertices;
 
 		public:
-			float radius = 0.0f;				//Radius if circular, Max extension if not.
-			std::vector<Vec2> vertices;
+			Shape();
+			Shape(float Radius);
+			Shape(std::vector<Vec2> _vertices);
+			~Shape();
 	};
 }
 
