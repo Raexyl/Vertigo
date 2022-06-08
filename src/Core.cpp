@@ -57,7 +57,7 @@ int main(void)
 		if(renderAcc >= renderFrametime)
 		{
 			a->OnRender();
-			renderAcc = std::chrono::nanoseconds::zero();
+			renderAcc -= renderFrametime;
 		}
     }
 
