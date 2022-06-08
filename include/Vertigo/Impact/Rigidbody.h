@@ -13,6 +13,7 @@ namespace Impact
 			Shape* m_Shape;
 			Material* m_Material;
 			float m_IMass;
+			bool m_IsKinematic = false;
 
 		public:
 			Vec2 position;
@@ -28,6 +29,7 @@ namespace Impact
 			Material* GetMaterial(void);
 			float GetIMass(void);
 			void MakeKinematic(void);
+			bool IsKinematic(void);
 	};
 }
 

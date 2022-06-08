@@ -20,7 +20,8 @@ namespace Impact
 		}
 		else
 		{
-			m_IMass = 1.0f;
+			m_IMass = 0.0f;
+			m_IsKinematic = true;
 		}
 
 		allRigidbodies.push_back(this);
@@ -49,5 +50,11 @@ namespace Impact
 	void Rigidbody::MakeKinematic(void)
 	{
 		m_IMass = 0.0f;
+		m_IsKinematic = true;
+	}
+
+	bool Rigidbody::IsKinematic(void)
+	{
+		return m_IsKinematic;
 	}
 }

@@ -31,7 +31,7 @@ namespace Impact
 		for(unsigned int i = 0; i < Rigidbody::allRigidbodies.size(); i++)
 		{
 			Rigidbody* b = Rigidbody::allRigidbodies[i];
-			if(b->GetIMass() == 0.0f) { continue; }; //Don't step kinematic bodies!
+			if(b->IsKinematic()) { continue; }; //Skip kinematic bodies!
 			b->velocity += m_Gravity * dt; //gravity
 			b->velocity *= 1 - (m_Drag * dt); //drag (air resistance)
 			b->position += b->velocity * dt; //step position
