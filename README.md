@@ -12,6 +12,7 @@ Cross-platform game engine as a static library.
  - run "cmake --build ."
 
 ### Dev Todo
+ - Density value in the material class
  - Polygons?
 	 - Find and store contact points?
 	 - Rotations! (scalar cross product)

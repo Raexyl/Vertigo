@@ -15,9 +15,9 @@ class Game : public App
 	{
 		window = new sf::RenderWindow(sf::VideoMode(800, 600), "SFML works!");
 
-		smallCircle = Impact::Shape(25.0f);
-		mediumCircle = Impact::Shape(50.0f);
-		idealish = Impact::Material(0.9f, 0.0f, 0.0f);
+		smallCircle = Impact::Shape(12.5f);
+		mediumCircle = Impact::Shape(20.0f);
+		idealish = Impact::Material(0.99f, 0.0f, 0.0f);
 
 		//medium circles
 		for(unsigned int i = 0; i < 5; i++)
@@ -27,7 +27,7 @@ class Game : public App
 		}
 
 		//small circles
-		for(unsigned int i = 0; i < 100; i++)
+		for(unsigned int i = 0; i < 200; i++)
 		{
 			Impact::Rigidbody* body = new Impact::Rigidbody(&smallCircle, &idealish, 1.0f);
 			body->position = Impact::Vec2(i * 1.0f, 0.0f);
