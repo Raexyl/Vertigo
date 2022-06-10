@@ -13,7 +13,8 @@ Cross-platform game engine as a static library.
 
 ### Dev Todo
  - Polygons?
-	 - Find and store contact points
+	 - Find and store contact points?
+	 - Rotations! (scalar cross product)
 
  - What if there is no posDif between bodies? We need a default bias? in Vec2?
  - Links (between bodies)

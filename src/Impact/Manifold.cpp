@@ -71,6 +71,9 @@ namespace Impact
 			case PolyCircle:
 				return PolyCircleOverlaps();
 
+			case PolyPoly:
+				return PolyPolyOverlaps();
+
 			default:
 				return false; //There's something funky happening if we get to this line, so let's play it safe.
 		}
@@ -154,7 +157,44 @@ namespace Impact
 		if(Dot(normal, posDif) < 0) { normal *= -1.0f; };
 		m_Normal = normal;
 
-		std::cout << m_Normal.x << ", " << m_Normal.y << std::endl;
+		//Get contact point ( I think there's only ever one?)
+
+		return true;
+	}
+
+	bool Manifold::PolyPolyOverlaps(void)
+	{
+		//Get axes to test for separation
+		std::vector<Impact::Vec2> axes;
+		m_A->GetShape()->GetFaceNormals(&axes);
+		m_B->GetShape()->GetFaceNormals(&axes);
+		Vec2 posDif = m_B->position - m_A->position;
+		axes.push_back(posDif.Normalized());
+
+		//Get min axis of separation
+		float minSep = -FLT_MAX;
+		Vec2 normal = Vec2(1.0f, 0.0f);
+		float posDifSize = posDif.Size();
+		float penetration = 0;
+		for(int i = 0; i < axes.size(); i++)
+		{
+			penetration = Dot(posDif, axes[i]) - m_A->GetShape()->GetExtensionAlongDir(axes[i]) - m_B->GetShape()->GetExtensionAlongDir(axes[i] * 1.0f);
+			if(penetration > 0)
+			{
+				//Doesn't overlap. We've found an axis of separation!
+				return false;
+			}
+			else if (penetration > minSep)
+			{
+				minSep = penetration;
+				normal = axes[i];
+			}
+		}
+
+		m_Penetration = penetration;
+
+		if(Dot(normal, posDif) < 0) { normal *= -1.0f; };
+		m_Normal = normal;
 
 		//Get contact point ( I think there's only ever one?)
 
