@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "src/libVertigo.a"
+			"path" : "src/Impact/libImpact.a"
 		}
 	],
 	"backtrace" : 1,
@@ -12,11 +12,11 @@
 		"commands" : 
 		[
 			"add_library",
-			"target_link_libraries",
 			"include_directories"
 		],
 		"files" : 
 		[
+			"src/Impact/CMakeLists.txt",
 			"src/CMakeLists.txt"
 		],
 		"nodes" : 
@@ -27,37 +27,52 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 8,
+				"line" : 4,
 				"parent" : 0
+			},
+			{
+				"file" : 1
 			},
 			{
 				"command" : 1,
-				"file" : 0,
-				"line" : 18,
-				"parent" : 0
+				"file" : 1,
+				"line" : 1,
+				"parent" : 2
 			},
 			{
-				"command" : 2,
+				"command" : 1,
+				"file" : 1,
+				"line" : 2,
+				"parent" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 3,
+				"parent" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 4,
+				"parent" : 2
+			},
+			{
+				"command" : 1,
 				"file" : 0,
 				"line" : 1,
 				"parent" : 0
 			},
 			{
-				"command" : 2,
+				"command" : 1,
 				"file" : 0,
 				"line" : 2,
 				"parent" : 0
 			},
 			{
-				"command" : 2,
+				"command" : 1,
 				"file" : 0,
 				"line" : 3,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
-				"line" : 4,
 				"parent" : 0
 			}
 		]
@@ -67,9 +82,6 @@
 		{
 			"compileCommandFragments" : 
 			[
-				{
-					"fragment" : "-g"
-				},
 				{
 					"fragment" : "-std=c++11"
 				}
@@ -91,6 +103,18 @@
 				{
 					"backtrace" : 6,
 					"path" : "/home/selkeph/dev/Vertigo/src/."
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/selkeph/dev/Vertigo/src/Impact/../../include/Vertigo/Impact"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "/home/selkeph/dev/Vertigo/src/Impact/../../include/Vertigo/Impact/Math"
+				},
+				{
+					"backtrace" : 9,
+					"path" : "/home/selkeph/dev/Vertigo/src/Impact/."
 				}
 			],
 			"language" : "CXX",
@@ -106,24 +130,20 @@
 			[
 				0,
 				1,
-				2
+				2,
+				3,
+				4,
+				5
 			]
 		}
 	],
-	"dependencies" : 
-	[
-		{
-			"backtrace" : 2,
-			"id" : "Impact::@ee7155f8ba3c5b3632b0"
-		}
-	],
-	"id" : "Vertigo::@145eef247bfb46b6828c",
-	"name" : "Vertigo",
-	"nameOnDisk" : "libVertigo.a",
+	"id" : "Impact::@ee7155f8ba3c5b3632b0",
+	"name" : "Impact",
+	"nameOnDisk" : "libImpact.a",
 	"paths" : 
 	{
-		"build" : "src",
-		"source" : "src"
+		"build" : "src/Impact",
+		"source" : "src/Impact"
 	},
 	"sourceGroups" : 
 	[
@@ -133,7 +153,10 @@
 			[
 				0,
 				1,
-				2
+				2,
+				3,
+				4,
+				5
 			]
 		}
 	],
@@ -142,19 +165,37 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/App.cpp",
+			"path" : "src/Impact/Math/Vec2.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/Core.cpp",
+			"path" : "src/Impact/Shape.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/Logger.cpp",
+			"path" : "src/Impact/Rigidbody.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Impact/Scene.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Impact/Manifold.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Impact/Material.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

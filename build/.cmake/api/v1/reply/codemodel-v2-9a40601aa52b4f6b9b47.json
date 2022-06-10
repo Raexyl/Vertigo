@@ -11,7 +11,7 @@
 						1,
 						3
 					],
-					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.10"
@@ -25,7 +25,7 @@
 					[
 						2
 					],
-					"jsonFile" : "directory-src-Debug-b6cf2213fc5053b67c22.json",
+					"jsonFile" : "directory-src-b6cf2213fc5053b67c22.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.10"
@@ -40,7 +40,7 @@
 				},
 				{
 					"build" : "src/Impact",
-					"jsonFile" : "directory-src.Impact-Debug-7d5c662118f27fbe611e.json",
+					"jsonFile" : "directory-src.Impact-7d5c662118f27fbe611e.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.10"
@@ -55,7 +55,7 @@
 				},
 				{
 					"build" : "tests",
-					"jsonFile" : "directory-tests-Debug-b01f6abb0ab61427ef3b.json",
+					"jsonFile" : "directory-tests-b01f6abb0ab61427ef3b.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.10"
@@ -70,7 +70,7 @@
 					]
 				}
 			],
-			"name" : "Debug",
+			"name" : "",
 			"projects" : 
 			[
 				{
@@ -96,28 +96,28 @@
 				{
 					"directoryIndex" : 2,
 					"id" : "Impact::@ee7155f8ba3c5b3632b0",
-					"jsonFile" : "target-Impact-Debug-cdc31fbc6341ab06080f.json",
+					"jsonFile" : "target-Impact-4a5bf380d0bdb66ed202.json",
 					"name" : "Impact",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 1,
 					"id" : "Vertigo::@145eef247bfb46b6828c",
-					"jsonFile" : "target-Vertigo-Debug-a9d753ef63ea5bdca493.json",
+					"jsonFile" : "target-Vertigo-08800356038e77254977.json",
 					"name" : "Vertigo",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 3,
 					"id" : "circles::@a44f0ac069e85531cdee",
-					"jsonFile" : "target-circles-Debug-f8304685cfe594915d83.json",
+					"jsonFile" : "target-circles-58bd8a3a265c2030f4c9.json",
 					"name" : "circles",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 3,
 					"id" : "polycircle::@a44f0ac069e85531cdee",
-					"jsonFile" : "target-polycircle-Debug-6a2e0b8899f56090b50a.json",
+					"jsonFile" : "target-polycircle-54ca89fc65a8d805589d.json",
 					"name" : "polycircle",
 					"projectIndex" : 0
 				}

@@ -7,7 +7,6 @@ class Game : public App
 	sf::RenderWindow* window;
 
 	//Physics
-	Impact::Shape smallCircle;
 	Impact::Shape mediumCircle;
 	Impact::Shape polyShape;
 	Impact::Material ideal;
@@ -19,9 +18,10 @@ class Game : public App
 		//Shapes
 		mediumCircle = Impact::Shape(50.0f);
 		std::vector<Impact::Vec2> vertices = {
-			Impact::Vec2(50.0f, 50.0f),
-			Impact::Vec2(25.0f, -25.0f),
-			Impact::Vec2(-25.0f, 0.0f)
+			Impact::Vec2(45.0f, 40.0f),
+			Impact::Vec2(60.0f, -40.0f),
+			Impact::Vec2(-40.0f, -60.0f),
+			Impact::Vec2(-55.0f, 50.0f)
 		};
 		polyShape = Impact::Shape(vertices);
 
@@ -34,7 +34,7 @@ class Game : public App
 
 		Impact::Rigidbody* body1 = new Impact::Rigidbody(&mediumCircle, &ideal, 1.0f);
 		body1->position = Impact::Vec2(300.0f, 100.0f);
-
+//
 		Impact::Rigidbody* poly0 = new Impact::Rigidbody(&polyShape, &ideal, 1.0f);
 		poly0->position = Impact::Vec2(100.0f, 500.0f);
 		poly0->MakeKinematic();

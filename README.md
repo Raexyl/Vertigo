@@ -13,7 +13,6 @@ Cross-platform game engine as a static library.
 
 ### Dev Todo
  - Polygons?
-	 - Manifold::PolyCircleOverlaps() is inaccurate...
 	 - Find and store contact points
 
  - What if there is no posDif between bodies? We need a default bias? in Vec2?

@@ -136,7 +136,7 @@ namespace Impact
 		float penetration = 0;
 		for(int i = 0; i < axes.size(); i++)
 		{
-			penetration = posDifSize - m_A->GetShape()->GetExtensionAlongDir(axes[i]) - m_B->GetShape()->radius;	
+			penetration = Dot(posDif, axes[i]) - m_A->GetShape()->GetExtensionAlongDir(axes[i]) - m_B->GetShape()->radius;
 			if(penetration > 0)
 			{
 				//Doesn't overlap. We've found an axis of separation!
@@ -153,6 +153,8 @@ namespace Impact
 
 		if(Dot(normal, posDif) < 0) { normal *= -1.0f; };
 		m_Normal = normal;
+
+		std::cout << m_Normal.x << ", " << m_Normal.y << std::endl;
 
 		//Get contact point ( I think there's only ever one?)
 
