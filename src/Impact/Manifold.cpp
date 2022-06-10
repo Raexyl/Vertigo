@@ -122,6 +122,9 @@ namespace Impact
 
 	bool Manifold::PolyCircleOverlaps(void)
 	{
+		//test
+		return false;
+
 		//Get axes to test for separation
 		std::vector<Impact::Vec2> axes;
 		m_A->GetShape()->GetFaceNormals(&axes);

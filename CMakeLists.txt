@@ -14,4 +14,4 @@ SET(src_dir			"${CMAKE_SOURCE_DIR}/src")
 
 # subdirectories
 add_subdirectory(${src_dir})
-add_subdirectory(./sandbox)
+add_subdirectory(./tests)
