@@ -58,7 +58,7 @@ namespace Impact
 		//Physics
 		if(!Overlaps()) { return; };
 		Collide();
-		//ApplyLinearProjection();
+		ApplyLinearProjection();
 	}
 
 	bool Manifold::Overlaps(void)
