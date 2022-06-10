@@ -17,6 +17,10 @@ namespace Impact
 			Shape(float Radius);
 			Shape(std::vector<Vec2> _vertices);
 			~Shape();
+			
+			bool IsCircular(void);
+			void GetFaceNormals(std::vector<Impact::Vec2>* output);
+			float GetExtensionAlongDir(Impact::Vec2 dir);
 	};
 }
 

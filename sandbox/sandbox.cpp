@@ -29,12 +29,12 @@ class Game : public App
 		}
 
 		//small circles
-		for(unsigned int i = 0; i < 10; i++)
-		{
-			Impact::Rigidbody* body = new Impact::Rigidbody(&smallCircle, &ideal, 1.0f);
-			body->position = Impact::Vec2(i * 10.0f, i * 8.0f);
-			body->velocity = Impact::Vec2(i, i) * 2.0f;
-		}
+		//for(unsigned int i = 0; i < 10; i++)
+		//{
+		//	Impact::Rigidbody* body = new Impact::Rigidbody(&smallCircle, &ideal, 1.0f);
+		//	body->position = Impact::Vec2(i * 10.0f, i * 8.0f);
+		//	body->velocity = Impact::Vec2(i, i) * 2.0f;
+		//}
 
 		//Polygon test
 		std::vector<Impact::Vec2> vertices = {
@@ -44,6 +44,7 @@ class Game : public App
 		};
 		polyShape = Impact::Shape(vertices);
 		Impact::Rigidbody* poly = new Impact::Rigidbody(&polyShape, &ideal, 1.0f);
+		poly->velocity = Impact::Vec2(100.0f, 100.0f);
 
 		//Kinematic body test
 		Impact::Rigidbody* kinematic = new Impact::Rigidbody(&mediumCircle, &ideal, 0.0f);

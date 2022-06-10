@@ -5,11 +5,15 @@
 
 namespace Impact
 {
+	enum CollType {CircleCircle, PolyCircle, PolyPoly};
+
 	class Manifold
 	{
 		private:
 			Rigidbody* m_A;
 			Rigidbody* m_B;
+
+			CollType m_CollType;
 
 			//collision info, populated during solving
 			float m_Penetration;
@@ -28,6 +32,11 @@ namespace Impact
 			bool Overlaps(void);
 			void Collide(void);
 			void ApplyLinearProjection(void);
+
+			/* ----- Shape-specific functions ----- */
+			bool CircleCircleOverlaps(void);
+			bool PolyCircleOverlaps(void);
+			bool PolyPolyOverlaps(void);
 	};
 }
 
