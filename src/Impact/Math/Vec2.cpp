@@ -58,6 +58,7 @@ namespace Impact
 
 	void Vec2::operator/=(float s)
 	{
+		if(s == 0.0f) { return; };
 		x /= s;
 		y /= s;
 	}
@@ -75,6 +76,7 @@ namespace Impact
 	void Vec2::Normalize(void)
 	{
 		float size = Size();
+		if(size == 0.0f) { return; };
 		x /= size;
 		y /= size;
 	}

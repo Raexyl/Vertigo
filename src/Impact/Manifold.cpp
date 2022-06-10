@@ -28,6 +28,7 @@ namespace Impact
 				//This ensures in PolyCircle manifolds, the poly is always m_A and the circle is always m_B.
 				m_B = a;
 				m_A = b;
+				m_CollType = PolyCircle;
 			}
 		}
 		else
@@ -57,7 +58,7 @@ namespace Impact
 		//Physics
 		if(!Overlaps()) { return; };
 		Collide();
-		ApplyLinearProjection();
+		//ApplyLinearProjection();
 	}
 
 	bool Manifold::Overlaps(void)
@@ -122,9 +123,6 @@ namespace Impact
 
 	bool Manifold::PolyCircleOverlaps(void)
 	{
-		//test
-		return false;
-
 		//Get axes to test for separation
 		std::vector<Impact::Vec2> axes;
 		m_A->GetShape()->GetFaceNormals(&axes);
@@ -152,9 +150,12 @@ namespace Impact
 		}
 
 		m_Penetration = penetration;
+
+		if(Dot(normal, posDif) < 0) { normal *= -1.0f; };
 		m_Normal = normal;
 
 		//Get contact point ( I think there's only ever one?)
-		return false;
+
+		return true;
 	}
 }
