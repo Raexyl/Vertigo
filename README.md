@@ -13,7 +13,9 @@ Cross-platform game engine as a static library.
 
 ### Dev Todo
  - Polygons?
-	 - Axes of separation... static method?
+	 - Get Axes of Separation
+	 - Get Axis of Min Separation
+	 - This axis is the collision normal?
 	 - Find and store contact points
 
  - Links (between bodies)
