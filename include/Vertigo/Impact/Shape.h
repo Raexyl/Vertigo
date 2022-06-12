@@ -21,6 +21,7 @@ namespace Impact
 			bool IsCircular(void);
 			void GetFaceNormals(std::vector<Impact::Vec2>* output);
 			float GetExtensionAlongDir(Impact::Vec2 dir);
+			float GetArea(void);
 	};
 }
 

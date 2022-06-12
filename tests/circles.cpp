@@ -19,7 +19,7 @@ class Game : public App
 		smallCircle = Impact::Shape(15.0f);
 		mediumCircle = Impact::Shape(20.0f);
 		bigCircle = Impact::Shape(25.0f);
-		idealish = Impact::Material(0.98f, 0.0f, 0.0f);
+		idealish = Impact::Material(0.9f, 0.0f, 0.0f, 1.0f);
 
 		//Change scene physics
 		Impact::Scene::SetGravity(Impact::Vec2(0.0f, 98.81f));
@@ -42,15 +42,15 @@ class Game : public App
 				Impact::Rigidbody* newBody;
 				if(count % 3 == 0)
 				{
-					newBody = new Impact::Rigidbody(&bigCircle, &idealish, 1.0f);
+					newBody = new Impact::Rigidbody(&bigCircle, &idealish);
 				}
 				else if (count % 3 == 1)
 				{
-					newBody = new Impact::Rigidbody(&mediumCircle, &idealish, 1.0f);
+					newBody = new Impact::Rigidbody(&mediumCircle, &idealish);
 				}
 				else
 				{
-					newBody = new Impact::Rigidbody(&smallCircle, &idealish, 1.0f);
+					newBody = new Impact::Rigidbody(&smallCircle, &idealish);
 				}
 				newBody->position = Impact::Vec2(sf::Mouse::getPosition(*window).x + (count % 3), sf::Mouse::getPosition(*window).y);
 				count++;

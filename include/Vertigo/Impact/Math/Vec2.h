@@ -30,6 +30,7 @@ namespace Impact
 	};
 
 	float Dot(Vec2 a, Vec2 b);
+	float Cross(Vec2 a, Vec2 b);
 }
 
 #endif

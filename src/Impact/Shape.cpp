@@ -74,4 +74,20 @@ namespace Impact
 
 		return extension;
 	}
+
+	float Shape::GetArea(void)
+	{
+		if(!IsCircular())
+		{
+			float sum = 0.0f;
+			for(int i = 0; i < vertices.size() - 1; i++)
+			{
+				sum += Cross(vertices[i], vertices[i+1]);
+			}
+			sum += Cross(vertices[vertices.size()], vertices[0]);
+			return sum / 2.0f;
+		}
+
+		return M_PI * radius * radius;
+	}
 }

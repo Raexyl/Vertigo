@@ -91,4 +91,9 @@ namespace Impact
 	{
 		return (a.x * b.x) + (a.y * b.y);
 	}
+
+	float Cross(Vec2 a, Vec2 b)
+	{
+		return (a.x * b.y) - (a.y * b.x);
+	}
 }

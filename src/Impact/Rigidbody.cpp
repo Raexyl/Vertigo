@@ -11,18 +11,11 @@ namespace Impact
 		//allRigidbodies.push_back(this); //Don't add the body since it has no shape or material.
 	}
 
-	Rigidbody::Rigidbody(Shape* shape, Material* material, float mass)
+	Rigidbody::Rigidbody(Shape* shape, Material* material)
 		:m_Shape(shape), m_Material(material)
 	{
-		if(mass != 0.0f) 
-		{
-			m_IMass = 1.0f / mass;
-		}
-		else
-		{
-			m_IMass = 0.0f;
-			m_IsKinematic = true;
-		}
+		//Calculate mass
+		m_IMass = 1.0f / (shape->GetArea() * material->density);
 
 		allRigidbodies.push_back(this);
 	}

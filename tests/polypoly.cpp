@@ -24,14 +24,14 @@ class Game : public App
 		polyShape = Impact::Shape(vertices);
 
 		//Material
-		ideal = Impact::Material(1.0f, 0.0f, 0.0f);
+		ideal = Impact::Material(1.0f, 0.0f, 0.0f, 1.0f);
 
 		//Rigidbodies
-		Impact::Rigidbody* poly0 = new Impact::Rigidbody(&polyShape, &ideal, 1.0f);
+		Impact::Rigidbody* poly0 = new Impact::Rigidbody(&polyShape, &ideal);
 		poly0->position = Impact::Vec2(100.0f, 500.0f);
 		poly0->MakeKinematic();
 
-		Impact::Rigidbody* poly1 = new Impact::Rigidbody(&polyShape, &ideal, 1.0f);
+		Impact::Rigidbody* poly1 = new Impact::Rigidbody(&polyShape, &ideal);
 		poly1->position = Impact::Vec2(100.0f, 200.0f);
 
 		//Change scene physics
