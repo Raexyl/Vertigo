@@ -15,8 +15,6 @@ namespace Impact
 			float m_IMass;
 			bool m_IsKinematic = false;
 
-			unsigned int m_AllRigidbodiesPosition;
-
 		public:
 			Vec2 position;
 			Vec2 velocity;

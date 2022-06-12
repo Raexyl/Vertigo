@@ -52,7 +52,7 @@ class Game : public App
 				{
 					newBody = new Impact::Rigidbody(&smallCircle, &idealish, 1.0f);
 				}
-				newBody->position = Impact::Vec2(sf::Mouse::getPosition(*window).x, sf::Mouse::getPosition(*window).y);
+				newBody->position = Impact::Vec2(sf::Mouse::getPosition(*window).x + (count % 3), sf::Mouse::getPosition(*window).y);
 				count++;
 			}
 		}
