@@ -29,14 +29,14 @@ namespace Impact
 
 			Vec2 m_Gravity = Vec2(0.0f, 9.81f);
 			float m_Drag = 0.00f;
-			unsigned int m_Iterations = 2;
+			 int m_Iterations = 2;
 
 		public:
 			static void Step(float dt);
 			static void DebugDraw(sf::RenderWindow* window);
 			static void SetGravity(Vec2 vector);
 			static void SetDrag(float coefficient);
-			static void SetIterations(unsigned int iterations);
+			static void SetIterations( int iterations);
 
 		private:
 			//std::vector<Rigidbody*> m_Rigidbodies;
@@ -44,7 +44,7 @@ namespace Impact
 			void hiddenDebugDraw(sf::RenderWindow* window);
 			void hiddenSetGravity(Vec2 vector);
 			void hiddenSetDrag(float coefficient);
-			void hiddenSetIterations(unsigned int iterations);
+			void hiddenSetIterations( int iterations);
 
 			void BoxIn(Impact::Vec2 dimensions);
 	};

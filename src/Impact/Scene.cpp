@@ -20,15 +20,17 @@ namespace Impact
 
 	void Scene::SetDrag(float coefficient) { Get().hiddenSetDrag(coefficient); };
 
-	void Scene::SetIterations(unsigned int iterations) { Get().hiddenSetIterations(iterations); };
+	void Scene::SetIterations( int iterations) { Get().hiddenSetIterations(iterations); };
 
 
 	/* ----- Hidden Methods ----- */
 
 	void Scene::hiddenStep(float dt)
 	{
+		if(Rigidbody::allRigidbodies.size() == 0) { return; };
+
 		//Step Velocities
-		for(unsigned int i = 0; i < Rigidbody::allRigidbodies.size(); i++)
+		for(int i = 0; i < Rigidbody::allRigidbodies.size(); i++)
 		{
 			Rigidbody* b = Rigidbody::allRigidbodies[i];
 			if(b->IsKinematic()) { continue; }; //Skip kinematic bodies!
@@ -40,7 +42,7 @@ namespace Impact
 		BoxIn(Vec2(800, 600));
 
 		//Manage collisions!
-		for(unsigned int iterations = 0; iterations < m_Iterations; iterations++)
+		for(int iterations = 0; iterations < m_Iterations; iterations++)
 		{
 			for(int i = 0; i < Rigidbody::allRigidbodies.size() - 1; i++)
 			{
@@ -55,18 +57,20 @@ namespace Impact
 
 	void Scene::hiddenDebugDraw(sf::RenderWindow* window)
 	{
+		if(Rigidbody::allRigidbodies.size() == 0) { return; };
+
 		sf::CircleShape circle(50.0f);
 		// circle.setFillColor(sf::Color::Cyan);
 		sf::ConvexShape poly;
 
-		for(unsigned int i = 0; i < Rigidbody::allRigidbodies.size(); i++)
+		for(int i = 0; i < Rigidbody::allRigidbodies.size(); i++)
 		{
 			Impact::Rigidbody* b = Rigidbody::allRigidbodies[i];
 			Impact::Shape* bodyShape = b->GetShape();
 
 			//Circles
-			unsigned int vertexCount = bodyShape->vertices.size();
-			if( vertexCount == 0)
+			int vertexCount = bodyShape->vertices.size();
+			if(vertexCount == 0)
 			{
 				float radius = bodyShape->radius;
 				circle.setRadius(radius);
@@ -78,7 +82,7 @@ namespace Impact
 			{
 				poly.setPointCount(vertexCount);
 
-				for(unsigned int i = 0; i < vertexCount; i++)
+				for(int i = 0; i < vertexCount; i++)
 				{
 					Impact::Vec2 vertex = bodyShape->vertices[i];
 					vertex += b->position;
@@ -86,8 +90,6 @@ namespace Impact
 				}
 				window->draw(poly);
 			}
-
-
 		}
 	}
 
@@ -101,14 +103,14 @@ namespace Impact
 		m_Drag = coefficient;
 	}
 
-	void Scene::hiddenSetIterations(unsigned int iterations)
+	void Scene::hiddenSetIterations( int iterations)
 	{
 		m_Iterations = iterations;
 	}
 
 	void Scene::BoxIn(Vec2 dimensions)
 	{
-		for(unsigned int i = 0; i < Rigidbody::allRigidbodies.size(); i++)
+		for(int i = 0; i < Rigidbody::allRigidbodies.size(); i++)
 		{
 			Impact::Rigidbody* b = Rigidbody::allRigidbodies[i];
 			float x = b->position.x;

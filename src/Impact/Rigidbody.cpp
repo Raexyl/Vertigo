@@ -24,12 +24,13 @@ namespace Impact
 			m_IsKinematic = true;
 		}
 
+		m_AllRigidbodiesPosition = allRigidbodies.size(); //Remembering the position makes for faster deletion of rigidbodies
 		allRigidbodies.push_back(this);
 	}
 
 	Rigidbody::~Rigidbody(void)
 	{
-		//allRigidbodies.erase(this);
+		allRigidbodies.erase(allRigidbodies.begin() + m_AllRigidbodiesPosition);
 	}
 
 	Shape* Rigidbody::GetShape(void)
