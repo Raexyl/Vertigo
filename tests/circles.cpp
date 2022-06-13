@@ -16,9 +16,9 @@ class Game : public App
 	{
 		window = new sf::RenderWindow(sf::VideoMode(800, 600), "SFML works!");
 
-		smallCircle = Impact::Shape(15.0f);
-		mediumCircle = Impact::Shape(20.0f);
-		bigCircle = Impact::Shape(25.0f);
+		smallCircle = Impact::Shape(10.0f);
+		mediumCircle = Impact::Shape(15.0f);
+		bigCircle = Impact::Shape(20.0f);
 		idealish = Impact::Material(0.9f, 0.0f, 0.0f, 1.0f);
 
 		//Change scene physics

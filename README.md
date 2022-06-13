@@ -12,7 +12,7 @@ Cross-platform game engine as a static library.
  - run "cmake --build ."
 
 ### Dev Todo
- - Density value in the material class
+ - Thread OnRender() and OnUpdate() / Physics in core?
  - Polygons?
 	 - Find and store contact points?
 	 - Rotations! (scalar cross product)

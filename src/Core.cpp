@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <chrono>
+#include <thread>
 
 Impact::Scene Impact::Scene::instance;
 
@@ -27,8 +28,11 @@ int main(void)
 
 	std::chrono::milliseconds physicsFrametime((int)(a->GetPhysicsFrameTime() * 1000.0f));  //seconds to milliseconds
 	std::chrono::milliseconds renderFrametime((int)(a->GetRenderFrameTime() * 1000.0f));
+	std::chrono::milliseconds minFrameTime;
+	if(physicsFrametime > renderFrametime) {minFrameTime = renderFrametime;} else {minFrameTime = physicsFrametime;};
 
 	std::chrono::nanoseconds renderAcc(0);
+	std::chrono::nanoseconds dt(0);
 
     while(!a->IsQuitting())
 	{
@@ -37,8 +41,9 @@ int main(void)
 		delta = end - start;
 		start = std::chrono::steady_clock::now();
 		
-		acc += std::chrono::duration_cast<std::chrono::nanoseconds>(delta);
-		renderAcc += std::chrono::duration_cast<std::chrono::nanoseconds>(delta);
+		dt = std::chrono::duration_cast<std::chrono::nanoseconds>(delta);
+		acc += dt;
+		renderAcc += dt;
 
 
 		//Running the application
@@ -59,6 +64,9 @@ int main(void)
 			a->OnRender();
 			renderAcc -= renderFrametime;
 		}
+
+		//Sleep for a while, so we don't always use max cpu usage.
+		std::this_thread::sleep_for(minFrameTime - dt);
     }
 
 
