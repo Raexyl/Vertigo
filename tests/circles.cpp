@@ -33,7 +33,7 @@ class Game : public App
 		{
 			if(event.type == sf::Event::Closed)
 			{
-				window->close();
+				//window->close(); <-- This causes a segfault!
 				Quit();
 			}
 			else if (event.type == sf::Event::MouseButtonPressed)
@@ -67,6 +67,7 @@ class Game : public App
 
 	void OnEnd()
 	{
+		window->close();
 		delete window;
 	}
 };
