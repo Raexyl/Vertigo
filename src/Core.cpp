@@ -30,6 +30,8 @@ int main(void)
 
 	std::chrono::milliseconds physicsFrametime((int)(a->GetPhysicsFrameTime() * 1000.0f));  //seconds to milliseconds
 	std::chrono::milliseconds renderFrametime((int)(a->GetRenderFrameTime() * 1000.0f));
+	std::chrono::milliseconds minUpdateFrametime;
+	if(physicsFrametime < renderFrametime) { minUpdateFrametime = physicsFrametime; } else { minUpdateFrametime = renderFrametime; };
 
 	std::chrono::nanoseconds dt(0);
 	std::chrono::nanoseconds renderAcc(0);
@@ -63,7 +65,7 @@ int main(void)
 		t1.join(); //Physics
 		
 		//Sleep until we need to do our next thing (probably OnUpdate())
-		//std::this_thread::sleep_for(minFrameTime - dt);
+		std::this_thread::sleep_for(minUpdateFrametime - dt);
     }
 
 
