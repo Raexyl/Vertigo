@@ -12,7 +12,6 @@ Cross-platform game engine as a static library.
  - run "cmake --build ."
 
 ### Dev Todo
- - Segmentation fault when quitting! maybe OnUpdate() should stay in the main thread?
  - Polygons?
 	 - Find and store contact points?
 	 - Rotations! (scalar cross product)

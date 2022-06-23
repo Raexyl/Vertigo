@@ -54,15 +54,15 @@ int main(void)
 		//Update Physics
 		std::thread t1(PhysicsThread, dt, physicsFrametime);
 
+		t0.join(); //OnUpdate()
+		t1.join(); //Physics
+
 		//Render (On the main thread) (No point in having another thread)
 		if(renderAcc >= renderFrametime)
 		{
 			a->OnRender();	
 			renderAcc -= renderFrametime;
 		}
-
-		t0.join(); //OnUpdate()
-		t1.join(); //Physics
 		
 		//Sleep until we need to do our next thing (probably OnUpdate())
 		std::this_thread::sleep_for(minUpdateFrametime - dt);
