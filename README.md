@@ -12,9 +12,8 @@ Cross-platform game engine as a static library.
  - run "cmake --build ."
 
 ### Dev Todo
- - Polygons?
-	 - Find and store contact points?
-	 - Rotations! (scalar cross product)
+ - PolyCircle --> Get contact points if overlapping!
+ - Add cross product math in Manifold::Solve().
 
  - What if there is no posDif between bodies? We need a default bias? in Vec2?
  - Links (between bodies)

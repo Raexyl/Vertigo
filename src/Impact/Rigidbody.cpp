@@ -57,4 +57,9 @@ namespace Impact
 	{
 		return m_IsKinematic;
 	}
+
+	void Rigidbody::ApplyImpulse(Vec2 impulse)
+	{
+		velocity += impulse * m_IMass;
+	}
 }

@@ -18,10 +18,9 @@ class Game : public App
 		//Shapes
 		mediumCircle = Impact::Shape(50.0f);
 		std::vector<Impact::Vec2> vertices = {
-			Impact::Vec2(45.0f, 40.0f),
-			Impact::Vec2(60.0f, -40.0f),
-			Impact::Vec2(-40.0f, -60.0f),
-			Impact::Vec2(-55.0f, 50.0f)
+			Impact::Vec2(0.0f, -40.0f),
+			Impact::Vec2(-60.0f, 20.0f),
+			Impact::Vec2(60.0f, 20.0f),
 		};
 		polyShape = Impact::Shape(vertices);
 
@@ -54,7 +53,6 @@ class Game : public App
 		{
 			if(event.type == sf::Event::Closed)
 			{
-				window->close();
 				Quit();
 			}
 		}
@@ -69,6 +67,7 @@ class Game : public App
 
 	void OnEnd()
 	{
+		window->close();
 		delete window;
 	}
 };

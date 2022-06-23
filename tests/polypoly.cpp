@@ -46,7 +46,6 @@ class Game : public App
 		{
 			if(event.type == sf::Event::Closed)
 			{
-				window->close();
 				Quit();
 			}
 		}
@@ -61,6 +60,7 @@ class Game : public App
 
 	void OnEnd()
 	{
+		window->close();
 		delete window;
 	}
 };

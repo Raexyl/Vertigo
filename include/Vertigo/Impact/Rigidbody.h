@@ -30,6 +30,7 @@ namespace Impact
 			float GetIMass(void);
 			void MakeKinematic(void);
 			bool IsKinematic(void);
+			void ApplyImpulse(Vec2 impulse);
 	};
 }
 

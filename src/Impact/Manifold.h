@@ -20,6 +20,7 @@ namespace Impact
 			Vec2 m_VelDif;
 			Vec2 m_Normal;
 			Vec2 m_Contacts[2]; //Contact point in world space
+			unsigned int m_ContactNo = 0;
 
 		public:
 			Manifold(void);
