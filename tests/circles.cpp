@@ -22,7 +22,7 @@ class Game : public App
 		idealish = Impact::Material(0.9f, 0.0f, 0.0f, 1.0f);
 
 		//Change scene physics
-		Impact::Scene::SetGravity(Impact::Vec2(0.0f, 98.81f));
+		Impact::Scene::SetGravity(Impact::Vec2(0.0f, 0.0f)); //98.81f));
 	}
 
 	void OnUpdate()
@@ -52,7 +52,7 @@ class Game : public App
 				{
 					newBody = new Impact::Rigidbody(&smallCircle, &idealish);
 				}
-				newBody->position = Impact::Vec2(sf::Mouse::getPosition(*window).x + (count % 3), sf::Mouse::getPosition(*window).y);
+				newBody->position = Impact::Vec2(sf::Mouse::getPosition(*window).x, sf::Mouse::getPosition(*window).y);
 				count++;
 			}
 		}

@@ -84,6 +84,7 @@ namespace Impact
 	Vec2 Vec2::Normalized(void)
 	{
 		float size = Size();
+		if(size == 0) { return Vec2(0.0f, 0.0f); };
 		return Vec2(x / size, y / size);
 	}
 
